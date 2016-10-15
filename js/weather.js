@@ -11,20 +11,32 @@ $(document).ready(function() {
 
     //get json info
     $.getJSON(url, function(data) {
+      var degree = "°F";
       console.log(data.weather[0].main);
       var city = data.name;
       var icon = data.weather[0].icon;
-      var far = data.main.temp;
+      var far = Math.round(data.main.temp);
       var desc = data.weather[0].main;
 
-      //Convert F to C
-      var celcius = (far - 32)*0.5556;
 
       //display on app
       $(".city").append('<h1>' + city + '</h1>');
       $(".icon").append('<img src="http://openweathermap.org/img/w/' + icon + '.png">');
-      $('.temp').append('<h3>' + far + ' F</h3>');
+      $('.temp').append('<h3>' + far + ' ' + '<span>'+degree+'</span></h3>');
       $('.desc').append('<h3>' + desc + '</h3>');
+
+      //Convert F to C and C to F
+      var celcius = Math.round((far - 32)*0.5556);
+      $('.temp').on('click', function(){
+        if(degree == "°F") {
+          degree = "°C";
+          $('.temp').html('<h3>' + celcius + ' ' + '<span>'+degree+'</span></h3>');
+        }
+        else if (degree == "°C") {
+          degree = "°F";
+          $('.temp').html('<h3>' + far + ' ' +'<span>'+degree+'</span></h3>');
+        }
+      });
     });
   });
 

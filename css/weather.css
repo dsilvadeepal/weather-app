@@ -6,20 +6,28 @@ body{
 /*  background:url('http://mobileadvertisingwatch.com/wp-content/uploads/2014/07/Advertising-Weather-Report-Increasingly-Sunny-Forecast-for-Native-Advertising.jpg') no-repeat 50% 50% fixed;
   background-size: cover;
   */
-  background-color: #79CEC5;
-  color: white;
-
 }
 
 .weather-area{
   width: 350px;
   height: 400px;
-  background-color: #00A492;
+  background-color: #E9735B;
   border-radius: 5%;
   margin: 0 auto;
   margin-top: 90px;
+  color: #FEE8E8;
 }
 
 .weather{
   text-align: center;
 }
+
+.temp span {
+  text-decoration: underline;
+  color: #AA3D3D;
+}
+
+.temp span:hover {
+  cursor:pointer;
+}
+
